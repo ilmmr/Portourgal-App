@@ -1,0 +1,50 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ContentPage  xmlns="http://xamarin.com/schemas/2014/forms" 
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:local="clr-namespace:Portourgal.View"
+              mc:Ignorable="d"
+              Title="Editar Perfil"
+             x:Class="Portourgal.View.EditarPerfilView">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <local:ByteArrayToImageSourceConverter x:Key="ByteArrayToImage" />
+        </ResourceDictionary>
+    </ContentPage.Resources>
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Spacing="20" Padding="0, 40, 0, 0">
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20*"/>
+                        <RowDefinition Height="60*"/>
+                        <RowDefinition Height="20*"/>
+                    </Grid.RowDefinitions>
+                </Grid>
+                <Frame Grid.Row="0"
+                         CornerRadius="10"
+                        WidthRequest="160"
+                        HeightRequest="160"
+                        VerticalOptions="Center"
+                        HorizontalOptions="Center" Margin="0,-5,0,5"
+                       IsClippedToBounds="True" Padding="0" >
+                    <ImageButton Source="{Binding Imagem,Converter={StaticResource ByteArrayToImage}}" Command="{Binding ComandoAlterarImagem}" HorizontalOptions="Center" Aspect="AspectFill" />
+                </Frame>
+                <StackLayout Grid.Row="2" Spacing="30" Margin="50, 50, 50, 0">
+                    <!--Nome-->
+                    <Entry Text="{Binding Nome}" Placeholder="{Binding NomeAntigo}" ClearButtonVisibility="WhileEditing"/>
+                    <!--Distrito-->
+                    <Picker Title="Distrito" ItemsSource="{Binding Distritos}" SelectedItem="{Binding Distrito, Mode=TwoWay}" />
+                    <!--Cidade-->
+                    <Picker Title="Cidade" ItemsSource="{Binding Cidades}" SelectedItem="{Binding Cidade, Mode=TwoWay}" />
+                    <!--Email-->
+                    <Entry Text="{Binding Email}" Placeholder="{Binding EmailAntigo}"  ClearButtonVisibility="WhileEditing"/>
+                    <!--Password-->
+                    <Entry Text="{Binding Password}" Placeholder="Password" ClearButtonVisibility="WhileEditing" IsPassword="True"/>
+                </StackLayout>
+
+                <Button Text="Editar" Command="{Binding ComandoEditar}"  TextColor="White" CornerRadius="25" BackgroundColor="#C65F4A" VerticalOptions="Start" HorizontalOptions="Center" WidthRequest="250" Margin="20"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

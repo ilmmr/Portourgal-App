@@ -1,0 +1,18 @@
+[
+	{
+		"Nome": "Carolina Loureiro",
+		"E-mail": "carlour@gmail.com",
+		"PassWord": "123123123",
+		"Morada": {
+			"Distrito": "Braga",
+			"Cidade": "Guimarães"
+		},
+		"Locais Visitados": [
+			{
+				"Atracao": "Castelo",
+				"Dia": "22-02-2020"
+			}
+
+		]
+	}
+]

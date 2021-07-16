@@ -1,0 +1,37 @@
+﻿@page
+@model PortourgalAdmin.Pages.RestauranteModel
+@{
+    ViewData["Title"] = "Restaurante";
+}
+<style>
+    img.perc {
+        height: 50%;
+        width: 50%;
+    }
+</style>
+
+<div class="text-center">
+    <h1 class="display-4">Hotel</h1>
+</div>
+
+@if (Model.Restaurante != null)
+{
+    <div>
+        <p><h6>Nome </h6>@Model.Restaurante.Nome</p>
+        <p><h6>Morada </h6>@Model.Restaurante.Morada</p>
+        <p><h6>Classificação </h6>@Model.Restaurante.Classificacao</p>
+        <img class="perc" src=@Model.Restaurante.Imagem>
+    </div>
+    <form method="POST">
+        <button type="submit" asp-page-handler="Delete"
+                asp-route-asciiname="@Model.Ascii" asp-route-cid="@Model.Cid" asp-route-nome="@Model.Restaurante.Nome">
+            Eliminar restaurante
+        </button>
+    </form>
+}
+else
+{
+    <div class="text-center">
+        <h1 class="display-4">Erro Inesperado</h1>
+    </div>
+}

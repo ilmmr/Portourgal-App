@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="Portourgal.View.RoteirosView">
+    <ContentPage.Content>
+        <ScrollView>
+            <StackLayout Margin="15">
+                <Image Source="{Binding ImagemPercurso}" WidthRequest="10" HeightRequest="300" />
+                <Label Text="Percurso:" TextColor="Black" FontSize="16" HorizontalOptions="Start" VerticalOptions="Center"/>
+                <StackLayout BindableLayout.ItemsSource="{Binding Cidades}" HorizontalOptions="Start">
+                    <BindableLayout.ItemTemplate>
+                        <DataTemplate>
+                            <Label Text="{Binding .}" TextColor="Black" FontSize="12" HorizontalOptions="Start"/>
+                        </DataTemplate>
+                    </BindableLayout.ItemTemplate>
+                </StackLayout>
+                <BoxView BackgroundColor="Transparent" HeightRequest="20"/>
+                <Label Text="Descrição" TextColor="Black" FontSize="16" HorizontalOptions="Start" VerticalOptions="Center"/>
+                <Label Text="{Binding Descricao}" TextColor="Black" FontSize="12" HorizontalOptions="Start" VerticalOptions="Center"/>
+            </StackLayout>
+        </ScrollView>
+    </ContentPage.Content>
+</ContentPage>

@@ -1,0 +1,51 @@
+﻿@page
+@model PortourgalAdmin.Pages.RoteiroModel
+@{
+    ViewData["Title"] = "Roteiro";
+}
+
+    <style>
+        img.perc {
+            height: 30%;
+            width: 30%;
+        }
+        img.perc2 {
+            height: 30%;
+            width: 30%;
+        }
+    </style>
+
+<div class="text-center">
+    <h1 class="display-4">Roteiro</h1>
+</div>
+
+@if (Model.Roteiro != null)
+{
+<div>
+    <p><h6>Nome </h6>@Model.Roteiro.Nome</p>
+    <p><h6>ASCII </h6>@Model.Roteiro.ASCII</p>
+    <p><h6>Descrição </h6>@Model.Roteiro.Descricao</p>
+    <p><h6>Distância: </h6>@Model.Roteiro.Dist km</p>
+    <h6>Percurso: </h6>
+    <ul>
+        @foreach (var cid in Model.Roteiro.Percurso)
+        {
+            <li>@cid</li>
+        }
+    </ul>
+    <img class="perc" src=@Model.Roteiro.ImagemPercurso />
+    <img class="perc2" src=@Model.Roteiro.ImagemRoteiro />
+</div>
+<form method="POST">
+    <button type="submit" asp-page-handler="Delete"
+            asp-route-ascii="@Model.Roteiro.ASCII">
+        Eliminar Roteiro
+    </button>
+</form>
+}
+else
+{
+<div class="text-center">
+    <h1 class="display-4">Erro Inesperado</h1>
+</div>
+}
